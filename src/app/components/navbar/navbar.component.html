@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Auth0 App</a>
+   
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " [routerLink]="['home']" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['precios']" routerLinkActive="active">Precios</a>
+        </li>
+        <li class="nav-item" *ngIf="autenticado">
+          <a class="nav-link" [routerLink]="['protegida']" routerLinkActive="active">Protegida</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <button type="button" class="btn btn-outline-primary me-3"  *ngIf="!autenticado"  (click)="ingresar()">Ingresar</button>
+        <button type="button" class="btn btn-outline-danger"  *ngIf="autenticado" (click)="salir()">Salir</button>
+      </span>
+    </div>
+  </div>
+</nav>
